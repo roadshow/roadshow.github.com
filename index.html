@@ -1,2 +1,70 @@
-roadshow.
+<html>
+<head>
+  <title>The GitHub RoadShow</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <style>
+  body { font-family:helvetica, verdana, sans-serif; }
+  </style>
+
+    <script type="text/javascript">
+  var map;
+  function initialize() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: new google.maps.LatLng(50, 20),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    })
+
+    var cities = [
+      [ 'Poznan, Poland', 52.368445, 17.006836 ],
+      [ 'Berlin, Germany', 52.555871, 13.359375 ],
+      [ 'Stockholm, Sweden', 59.304786, 18.061523 ],
+      [ 'Oslo, Norway', 59.915611, 10.746002 ],
+      [ 'London, England', 51.501448, -0.131836 ],
+      [ 'Barcelona, Spain', 41.268999, 2.241211 ],
+      [ 'Madrid, Spain', 40.304107, -3.779297 ]
+    ]
+
+    for(var i = 0; i < cities.length; i++) {
+      var loc = cities[i][0]
+      var lat = cities[i][1]
+      var lng = cities[i][2]
+      var image = "http://roadshow.github.com/icons/lightblue" + (i + 1) + ".png"
+
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: map,
+        icon: image,
+        title: loc
+      })
+
+      /*google.maps.event.addListener(marker, 'click', function() {
+        new google.maps.InfoWindow({
+          content: loc,
+          size: new google.maps.Size(50,50)
+        }).open(map, marker)
+      })*/
+    }
+  }
+  </script>
+</head>
+<body onload="initialize()">
+  <h1>The GitHub RoadShow</h1>
+  <div id="list" style="float:right; width:23.5%">
+    <h3>Euro Trip Late '09</h3>
+    <ol>
+      <li>Poznan, Poland</li>
+      <li>Berlin, Germany</li>
+      <li>Stocholm, Sweden</li>
+      <li>Olso, Norway</li>
+      <li>London, England</li>
+      <li>Barcelona, Spain</li>
+      <li>Madrid, Spain</li>
+     </ol>
+  </div>
+
+  <div id="map" style="width:75%; height:100%;"></div>
+</body>
+</html>
 
