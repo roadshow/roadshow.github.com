@@ -7,9 +7,10 @@
   body { font-family:helvetica, verdana, sans-serif; }
   img a { border:0 }
   a { color:blue }
+  h2 { border-bottom:1px solid #666; }
   </style>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
   var map;
   function initialize() {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -52,8 +53,11 @@
   </script>
 </head>
 <body onload="initialize()">
-  <h1>The GitHub RoadShow</h1>
-  <div id="list" style="float:right; width:23.5%">
+  <div id="map" style="width:75%; height:100%; float:right;"></div>
+
+  <div id="list" style="width:23.5%">
+    <h2>The GitHub RoadShow</h2>
+
     <h3>Euro Trip Late '09</h3>
     <h4>Participants</h4>
     <div style="margin-left:1em">
@@ -73,8 +77,6 @@
       <li>Madrid, Spain: Nov 24-30</li>
      </ol>
   </div>
-
-  <div id="map" style="width:75%; height:100%;"></div>
 </body>
 </html>
 
